@@ -1,0 +1,14 @@
+[Unit]
+Description=traefik2
+Documentation=https://docs.traefik.io/
+Wants=basic.target
+After=basic.target network.target
+
+[Service]
+Type=simple
+ExecStart=<%= $traefik2::bin_dir %>/traefik --configFile=<%= $traefik2::config_dir %>/traefik2.yaml
+Restart=on-failure
+RestartSec=30s
+
+[Install]
+WantedBy=multi-user.target
