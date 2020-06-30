@@ -8,6 +8,7 @@ class traefik2 (
   Stdlib::Absolutepath $bin_dir,
   Stdlib::Absolutepath $config_dir,
   Stdlib::Absolutepath $data_dir,
+  Hash $dynamic_config,
   Enum['archive','package'] $install_method,
   Boolean $manage_service,
   String[1] $package_name,
@@ -15,6 +16,7 @@ class traefik2 (
   String[1] $service_name,
   Enum['systemd'] $service_provider,
   Enum['running','stopped'] $service_ensure,
+  Hash $static_config,
   String[1] $version,
 ) {
   anchor { 'traefik2::begin': }

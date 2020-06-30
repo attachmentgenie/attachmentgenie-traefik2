@@ -5,19 +5,15 @@
 # @example
 #   include traefik2::config
 class traefik2::config {
-  $config_file = "${traefik2::config_dir}/traefik2.yaml"
-
   file { $traefik2::config_dir:
     ensure => directory,
   }
-  -> concat { $config_file:
-    ensure => present,
-    notify => Service['traefik2'],
+  -> file { 'traefik static config':
+    path    => "${traefik2::config_dir}/config.yaml",
+    content => inline_template('<%= @static_config.to_yaml %>')
   }
-
-  concat::fragment { 'traefik2_config_header':
-    target  => $config_file,
-    content => "---\n",
-    order   => '01',
+  -> file { 'traefike dynamic_config':
+    path    => "${traefik2::config_dir}/dynamic.yaml",
+    content => inline_template('<%= @dynamic_config.to_yaml %>')
   }
 }

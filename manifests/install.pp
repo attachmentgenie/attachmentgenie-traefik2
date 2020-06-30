@@ -7,18 +7,15 @@
 class traefik2::install {
   case $::traefik2::install_method {
     'archive': {
-      $release_file_name = 'traefik2-linux-amd64'
-
-      $version_dir = "${traefik2::data_dir}/traefik2-${traefik2::version}"
-
-      $binary_path = "${version_dir}/${release_file_name}"
+      $version_dir = "${traefik2::data_dir}/traefik-${traefik2::version}"
+      $binary_path = "${version_dir}/traefik"
 
       file { [$traefik2::data_dir, $version_dir]:
         ensure => directory,
       }
       -> archive { "${binary_path}.tar.gz":
         ensure       => present,
-        source       => "https://github.com/containous/traefik/releases/download/v${traefik2::version}/traefik_${traefik2::version}_linux_amd64.tar.gz",
+        source       => "https://github.com/containous/traefik/releases/download/v${traefik2::version}/traefik_v${traefik2::version}_linux_amd64.tar.gz",
         extract      => true,
         extract_path => $version_dir,
         creates      => $binary_path,
@@ -31,7 +28,7 @@ class traefik2::install {
           mode    => '0755',
           require => Archive["${binary_path}.tar.gz"],
         ;
-        "${traefik2::bin_dir}/traefik2":
+        "${traefik2::bin_dir}/traefik":
           ensure  => link,
           target  => $binary_path,
           require => File[$binary_path],

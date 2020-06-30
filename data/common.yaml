@@ -8,4 +8,5 @@ traefik2::package_name: traefik2
 traefik2::package_version: present
 traefik2::service_name: traefik2
 traefik2::service_ensure: running
+traefik2::service_provider: systemd
 traefik2::version: '2.2.1'
