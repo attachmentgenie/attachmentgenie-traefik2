@@ -2,6 +2,7 @@
 traefik2::bin_dir: '/usr/local/bin'
 traefik2::config_dir: '/etc/traefik2'
 traefik2::data_dir: '/var/lib/traefik2'
+traefik2::dynamic_config: {}
 traefik2::install_method: archive
 traefik2::manage_service: true
 traefik2::package_name: traefik2
