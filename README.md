@@ -1,10 +1,10 @@
 # traefik2
 
-![](https://img.shields.io/puppetforge/pdk-version/attachmentgenie/traefik2.svg?style=popout)
-![](https://img.shields.io/puppetforge/v/attachmentgenie/traefik2.svg?style=popout)
-![](https://img.shields.io/puppetforge/dt/attachmentgenie/traefik2.svg?style=popout)
-![](https://travis-ci.org/attachmentgenie/attachmentgenie-traefik2.svg?branch=master)
-[![License](https://img.shields.io/github/license/attachmentgenie/attachmentgenie-traefik2?stype=popout)](LICENSE)
+[![](https://img.shields.io/puppetforge/pdk-version/attachmentgenie/traefik2.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/traefik2)
+[![](https://img.shields.io/puppetforge/v/attachmentgenie/traefik2.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/traefik2)
+[![](https://img.shields.io/puppetforge/dt/attachmentgenie/traefik2.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/traefik2)
+[![](https://travis-ci.org/attachmentgenie/attachmentgenie-traefik2.svg?branch=master)](https://travis-ci.org/attachmentgenie/attachmentgenie-traefik2)
+[![License](https://img.shields.io/github/license/attachmentgenie/attachmentgenie-traefik2?stype=popout)](https://github.com/attachmentgenie/attachmentgenie-traefik2/blob/master/LICENSE)
 
 Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/docs/pdk/latest/pdk_generating_modules.html .
 
