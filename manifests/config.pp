@@ -12,7 +12,7 @@ class traefik2::config {
     path    => "${traefik2::config_dir}/config.yaml",
     content => inline_template('<%= @static_config.to_yaml %>')
   }
-  -> file { 'traefike dynamic_config':
+  -> file { 'traefik dynamic_config':
     path    => "${traefik2::config_dir}/dynamic.yaml",
     content => inline_template('<%= @dynamic_config.to_yaml %>')
   }
