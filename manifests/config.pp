@@ -10,10 +10,10 @@ class traefik2::config {
   }
   -> file { 'traefik static config':
     path    => "${traefik2::config_dir}/config.yaml",
-    content => inline_template('<%= @static_config.to_yaml %>')
+    content => inline_template('<%= @traefik2::static_config.to_yaml %>')
   }
   -> file { 'traefik dynamic_config':
     path    => "${traefik2::config_dir}/dynamic.yaml",
-    content => inline_template(scope.lookupvar('dynamic_config').to_yaml)
+    content => inline_template('<%= @traefik2::dynamic_config.to_yaml %>')
   }
 }
