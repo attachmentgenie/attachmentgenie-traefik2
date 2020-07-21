@@ -14,6 +14,6 @@ class traefik2::config {
   }
   -> file { 'traefik dynamic_config':
     path    => "${traefik2::config_dir}/dynamic.yaml",
-    content => inline_template('<%= @dynamic_config.to_yaml %>')
+    content => inline_template(scope.lookupvar('dynamic_config').to_yaml)
   }
 }
