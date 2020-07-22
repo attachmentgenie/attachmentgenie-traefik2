@@ -22,4 +22,4 @@ traefik2::static_config:
     file:
       filename: "/etc/traefik2/dynamic.yaml"
       watch: true
-traefik2::version: '2.2.1'
+traefik2::version: '2.2.7'
