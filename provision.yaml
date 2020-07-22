@@ -1,4 +1,7 @@
 ---
-docker:
+docker_p5:
+  provisioner: docker
+  images: ['litmusimage/centos:7', 'litmusimage/centos:8', 'litmusimage/debian:9', 'litmusimage/debian:10', 'litmusimage/ubuntu:18.04']
+dcoker_p6:
   provisioner: docker
   images: ['litmusimage/centos:7', 'litmusimage/centos:8', 'litmusimage/debian:9', 'litmusimage/debian:10', 'litmusimage/ubuntu:18.04', 'litmusimage/ubuntu:20.04']
