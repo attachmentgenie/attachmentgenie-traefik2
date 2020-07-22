@@ -41,6 +41,17 @@ jobs:
     -
       env: DEPLOY_TO_FORGE=yes
       stage: deploy
+    -
+      before_script:
+        - "bundle exec rake 'litmus:provision_list[docker]'"
+        - "bundle exec rake 'litmus:install_agent[puppet6]'"
+        - "bundle exec rake litmus:install_module"
+      bundler_args:
+      env: PLATFORMS=docker_puppet6
+      rvm: 2.5.7
+      script: ["travis_wait 45 bundle exec rake litmus:acceptance:parallel"]
+      services: docker
+      stage: acceptance
 branches:
   only:
     - master
