@@ -11,7 +11,7 @@ describe 'default parameters', if: ['debian', 'redhat', 'ubuntu'].include?(os[:f
     idempotent_apply(pp)
   end
 
-  describe file("/etc/traefik2/config.yaml") do
+  describe file('/etc/traefik2/config.yaml') do
     it { is_expected.to be_file }
     its(:content) { is_expected.to match %r{filePath: "/var/log/traefik2/access.log"} }
   end
