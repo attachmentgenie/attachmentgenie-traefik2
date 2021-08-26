@@ -13,7 +13,7 @@
 
 ## Classes
 
-### `traefik2`
+### <a name="traefik2"></a>`traefik2`
 
 A description of what this class does
 
@@ -27,87 +27,101 @@ include traefik2
 
 #### Parameters
 
-The following parameters are available in the `traefik2` class.
+The following parameters are available in the `traefik2` class:
 
-##### `bin_dir`
+* [`bin_dir`](#bin_dir)
+* [`config_dir`](#config_dir)
+* [`data_dir`](#data_dir)
+* [`dynamic_config`](#dynamic_config)
+* [`install_method`](#install_method)
+* [`manage_service`](#manage_service)
+* [`package_name`](#package_name)
+* [`package_version`](#package_version)
+* [`service_name`](#service_name)
+* [`service_provider`](#service_provider)
+* [`service_ensure`](#service_ensure)
+* [`static_config`](#static_config)
+* [`version`](#version)
+
+##### <a name="bin_dir"></a>`bin_dir`
 
 Data type: `Stdlib::Absolutepath`
 
 
 
-##### `config_dir`
+##### <a name="config_dir"></a>`config_dir`
 
 Data type: `Stdlib::Absolutepath`
 
 
 
-##### `data_dir`
+##### <a name="data_dir"></a>`data_dir`
 
 Data type: `Stdlib::Absolutepath`
 
 
 
-##### `dynamic_config`
+##### <a name="dynamic_config"></a>`dynamic_config`
 
 Data type: `Hash`
 
 
 
-##### `install_method`
+##### <a name="install_method"></a>`install_method`
 
 Data type: `Enum['archive','package']`
 
 
 
-##### `manage_service`
+##### <a name="manage_service"></a>`manage_service`
 
 Data type: `Boolean`
 
 
 
-##### `package_name`
+##### <a name="package_name"></a>`package_name`
 
 Data type: `String[1]`
 
 
 
-##### `package_version`
+##### <a name="package_version"></a>`package_version`
 
 Data type: `String[1]`
 
 
 
-##### `service_name`
+##### <a name="service_name"></a>`service_name`
 
 Data type: `String[1]`
 
 
 
-##### `service_provider`
+##### <a name="service_provider"></a>`service_provider`
 
 Data type: `Enum['systemd']`
 
 
 
-##### `service_ensure`
+##### <a name="service_ensure"></a>`service_ensure`
 
 Data type: `Enum['running','stopped']`
 
 
 
-##### `static_config`
+##### <a name="static_config"></a>`static_config`
 
 Data type: `Hash`
 
 
 
-##### `version`
+##### <a name="version"></a>`version`
 
 Data type: `String[1]`
 
 
 
-### `traefik2::config`
+### <a name="traefik2config"></a>`traefik2::config`
 
 A description of what this class does
 
@@ -119,7 +133,7 @@ A description of what this class does
 include traefik2::config
 ```
 
-### `traefik2::install`
+### <a name="traefik2install"></a>`traefik2::install`
 
 A description of what this class does
 
@@ -131,7 +145,7 @@ A description of what this class does
 include traefik2::install
 ```
 
-### `traefik2::service`
+### <a name="traefik2service"></a>`traefik2::service`
 
 A description of what this class does
 
