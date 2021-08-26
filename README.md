@@ -3,7 +3,7 @@
 [![](https://img.shields.io/puppetforge/pdk-version/attachmentgenie/traefik2.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/traefik2)
 [![](https://img.shields.io/puppetforge/v/attachmentgenie/traefik2.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/traefik2)
 [![](https://img.shields.io/puppetforge/dt/attachmentgenie/traefik2.svg?style=popout)](https://forge.puppetlabs.com/attachmentgenie/traefik2)
-[![](https://travis-ci.org/attachmentgenie/attachmentgenie-traefik2.svg?branch=master)](https://travis-ci.org/attachmentgenie/attachmentgenie-traefik2)
+[![Spec Tests](https://github.com/attachmentgenie/attachmentgenie-traefik2/actions/workflows/spec.yml/badge.svg)](https://github.com/attachmentgenie/attachmentgenie-traefik2/actions/workflows/spec.yml)
 [![License](https://img.shields.io/github/license/attachmentgenie/attachmentgenie-traefik2?stype=popout)](https://github.com/attachmentgenie/attachmentgenie-traefik2/blob/master/LICENSE)
 
 Deploy and configure traefik2 on a node.
@@ -22,7 +22,7 @@ Traefik is an open-source Edge Router that makes publishing your services a fun 
 ## Usage
 
 All options and configuration can be done through interacting with the parameters
-on the main example class.
+on the main traefik2 class.
 These are now documented via [Puppet Strings](https://github.com/puppetlabs/puppet-strings)
 
 You can view example usage in [REFERENCE](REFERENCE.md).
