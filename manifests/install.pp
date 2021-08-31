@@ -15,7 +15,7 @@ class traefik2::install {
       }
       -> archive { "${binary_path}.tar.gz":
         ensure       => present,
-        source       => "https://github.com/containous/traefik/releases/download/v${traefik2::version}/traefik_v${traefik2::version}_linux_amd64.tar.gz",
+        source       => "https://github.com/traefik/traefik/releases/download/v${traefik2::version}/traefik_v${traefik2::version}_linux_amd64.tar.gz",
         extract      => true,
         extract_path => $version_dir,
         creates      => $binary_path,
