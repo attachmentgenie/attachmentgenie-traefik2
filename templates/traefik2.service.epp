@@ -9,6 +9,9 @@ Type=simple
 ExecStart=<%= $traefik2::bin_dir %>/traefik --configFile=<%= $traefik2::config_dir %>/config.yaml
 Restart=on-failure
 RestartSec=30s
+<% if $traefik2::systemd_workdir != undef { -%>
+WorkingDirectory=<%= $traefik2::systemd_workdir %>
+<% } -%>
 
 [Install]
 WantedBy=multi-user.target
