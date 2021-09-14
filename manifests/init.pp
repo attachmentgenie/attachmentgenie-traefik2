@@ -18,6 +18,8 @@ class traefik2 (
   Enum['running','stopped'] $service_ensure,
   Hash $static_config,
   String[1] $version,
+
+  Optional[Stdlib::Absolutepath] $systemd_workdir = undef
 ) {
   anchor { 'traefik2::begin': }
 -> class{ '::traefik2::install': }
