@@ -21,9 +21,11 @@ class traefik2 (
 
   Optional[Stdlib::Absolutepath] $systemd_workdir = undef
 ) {
-  anchor { 'traefik2::begin': }
--> class{ '::traefik2::install': }
--> class{ '::traefik2::config': }
-~> class{ '::traefik2::service': }
--> anchor { 'traefik2::end': }
+  contain 'traefik2::install'
+  contain 'traefik2::config'
+  contain 'traefik2::service'
+
+  Class['traefik2::install']
+  -> Class['traefik2::config']
+  ~> Class['traefik2::service']
 }

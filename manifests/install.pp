@@ -5,7 +5,7 @@
 # @example
 #   include traefik2::install
 class traefik2::install {
-  case $::traefik2::install_method {
+  case $traefik2::install_method {
     'archive': {
       $version_dir = "${traefik2::data_dir}/traefik-${traefik2::version}"
       $binary_path = "${version_dir}/traefik"
@@ -27,23 +27,23 @@ class traefik2::install {
           ensure  => file,
           mode    => '0755',
           require => Archive["${binary_path}.tar.gz"],
-        ;
+          ;
         "${traefik2::bin_dir}/traefik":
           ensure  => link,
           target  => $binary_path,
           require => File[$binary_path],
           notify  => Service['traefik2'],
-        ;
+          ;
       }
     }
     'package': {
       package { 'traefik2':
-        ensure => $::traefik2::package_version,
-        name   => $::traefik2::package_name,
+        ensure => $traefik2::package_version,
+        name   => $traefik2::package_name,
       }
     }
     default: {
-      fail("Installation method ${::traefik2::install_method} not supported")
+      fail("Installation method ${facts['traefik2::install_method']} not supported")
     }
   }
 }
