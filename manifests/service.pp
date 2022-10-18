@@ -8,7 +8,7 @@ class traefik2::service {
   if $traefik2::manage_service {
     case $traefik2::service_provider {
       'systemd': {
-        ::systemd::unit_file { "${traefik2::service_name}}.service":
+        ::systemd::unit_file { "${traefik2::service_name}.service":
           content => epp('traefik2/traefik2.service.epp'),
           before  => Service['traefik2'],
         }
