@@ -11,6 +11,7 @@ class traefik2::service {
         ::systemd::unit_file { "${traefik2::service_name}.service":
           content => epp('traefik2/traefik2.service.epp'),
           before  => Service['traefik2'],
+          notify  => Service['traefik2'],
         }
       }
       default: {
