@@ -12,6 +12,8 @@ class traefik2::install {
 
       file { [$traefik2::data_dir, $version_dir]:
         ensure => directory,
+        owner  => $traefik2::user,
+        group  => $traefik2::group,
       }
       -> archive { "${binary_path}.tar.gz":
         ensure       => present,

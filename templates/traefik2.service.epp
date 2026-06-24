@@ -6,6 +6,11 @@ After=basic.target network.target
 
 [Service]
 Type=simple
+User=<%= $traefik2::user %>
+Group=<%= $traefik2::group %>
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
 WorkingDirectory=<%= $traefik2::data_dir %>
 ExecStart=<%= $traefik2::bin_dir %>/traefik --configFile=<%= $traefik2::config_dir %>/config.yaml
 Restart=on-failure
