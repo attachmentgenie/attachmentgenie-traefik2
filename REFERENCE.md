@@ -7,9 +7,9 @@
 ### Classes
 
 * [`traefik2`](#traefik2): A short summary of the purpose of this class
-* [`traefik2::config`](#traefik2config): A short summary of the purpose of this class
-* [`traefik2::install`](#traefik2install): A short summary of the purpose of this class
-* [`traefik2::service`](#traefik2service): A short summary of the purpose of this class
+* [`traefik2::config`](#traefik2--config): A short summary of the purpose of this class
+* [`traefik2::install`](#traefik2--install): A short summary of the purpose of this class
+* [`traefik2::service`](#traefik2--service): A short summary of the purpose of this class
 
 ## Classes
 
@@ -29,99 +29,108 @@ include traefik2
 
 The following parameters are available in the `traefik2` class:
 
-* [`bin_dir`](#bin_dir)
-* [`config_dir`](#config_dir)
-* [`data_dir`](#data_dir)
-* [`dynamic_config`](#dynamic_config)
-* [`install_method`](#install_method)
-* [`manage_service`](#manage_service)
-* [`package_name`](#package_name)
-* [`package_version`](#package_version)
-* [`service_name`](#service_name)
-* [`service_provider`](#service_provider)
-* [`service_ensure`](#service_ensure)
-* [`static_config`](#static_config)
-* [`version`](#version)
+* [`bin_dir`](#-traefik2--bin_dir)
+* [`config_dir`](#-traefik2--config_dir)
+* [`data_dir`](#-traefik2--data_dir)
+* [`dynamic_config`](#-traefik2--dynamic_config)
+* [`install_method`](#-traefik2--install_method)
+* [`manage_service`](#-traefik2--manage_service)
+* [`package_name`](#-traefik2--package_name)
+* [`package_version`](#-traefik2--package_version)
+* [`service_name`](#-traefik2--service_name)
+* [`service_provider`](#-traefik2--service_provider)
+* [`service_ensure`](#-traefik2--service_ensure)
+* [`static_config`](#-traefik2--static_config)
+* [`version`](#-traefik2--version)
+* [`systemd_workdir`](#-traefik2--systemd_workdir)
 
-##### <a name="bin_dir"></a>`bin_dir`
-
-Data type: `Stdlib::Absolutepath`
-
-
-
-##### <a name="config_dir"></a>`config_dir`
+##### <a name="-traefik2--bin_dir"></a>`bin_dir`
 
 Data type: `Stdlib::Absolutepath`
 
 
 
-##### <a name="data_dir"></a>`data_dir`
+##### <a name="-traefik2--config_dir"></a>`config_dir`
 
 Data type: `Stdlib::Absolutepath`
 
 
 
-##### <a name="dynamic_config"></a>`dynamic_config`
+##### <a name="-traefik2--data_dir"></a>`data_dir`
+
+Data type: `Stdlib::Absolutepath`
+
+
+
+##### <a name="-traefik2--dynamic_config"></a>`dynamic_config`
 
 Data type: `Hash`
 
 
 
-##### <a name="install_method"></a>`install_method`
+##### <a name="-traefik2--install_method"></a>`install_method`
 
 Data type: `Enum['archive','package']`
 
 
 
-##### <a name="manage_service"></a>`manage_service`
+##### <a name="-traefik2--manage_service"></a>`manage_service`
 
 Data type: `Boolean`
 
 
 
-##### <a name="package_name"></a>`package_name`
+##### <a name="-traefik2--package_name"></a>`package_name`
 
 Data type: `String[1]`
 
 
 
-##### <a name="package_version"></a>`package_version`
+##### <a name="-traefik2--package_version"></a>`package_version`
 
 Data type: `String[1]`
 
 
 
-##### <a name="service_name"></a>`service_name`
+##### <a name="-traefik2--service_name"></a>`service_name`
 
 Data type: `String[1]`
 
 
 
-##### <a name="service_provider"></a>`service_provider`
+##### <a name="-traefik2--service_provider"></a>`service_provider`
 
 Data type: `Enum['systemd']`
 
 
 
-##### <a name="service_ensure"></a>`service_ensure`
+##### <a name="-traefik2--service_ensure"></a>`service_ensure`
 
 Data type: `Enum['running','stopped']`
 
 
 
-##### <a name="static_config"></a>`static_config`
+##### <a name="-traefik2--static_config"></a>`static_config`
 
 Data type: `Hash`
 
 
 
-##### <a name="version"></a>`version`
+##### <a name="-traefik2--version"></a>`version`
 
 Data type: `String[1]`
 
 
 
-### <a name="traefik2config"></a>`traefik2::config`
+##### <a name="-traefik2--systemd_workdir"></a>`systemd_workdir`
+
+Data type: `Optional[Stdlib::Absolutepath]`
+
+
+
+Default value: `undef`
+
+### <a name="traefik2--config"></a>`traefik2::config`
 
 A description of what this class does
 
@@ -133,7 +142,7 @@ A description of what this class does
 include traefik2::config
 ```
 
-### <a name="traefik2install"></a>`traefik2::install`
+### <a name="traefik2--install"></a>`traefik2::install`
 
 A description of what this class does
 
@@ -145,7 +154,7 @@ A description of what this class does
 include traefik2::install
 ```
 
-### <a name="traefik2service"></a>`traefik2::service`
+### <a name="traefik2--service"></a>`traefik2::service`
 
 A description of what this class does
 
