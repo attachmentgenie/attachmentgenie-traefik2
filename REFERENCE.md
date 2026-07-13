@@ -6,16 +6,17 @@
 
 ### Classes
 
-* [`traefik2`](#traefik2): A short summary of the purpose of this class
+* [`traefik2`](#traefik2): Install, configure, and run Traefik as a confined edge proxy.
 * [`traefik2::config`](#traefik2--config): A short summary of the purpose of this class
 * [`traefik2::install`](#traefik2--install): A short summary of the purpose of this class
 * [`traefik2::service`](#traefik2--service): A short summary of the purpose of this class
+* [`traefik2::user`](#traefik2--user): Dedicated system account Traefik runs as (de-root).
 
 ## Classes
 
 ### <a name="traefik2"></a>`traefik2`
 
-A description of what this class does
+Install, configure, and run Traefik as a confined edge proxy.
 
 #### Examples
 
@@ -42,6 +43,9 @@ The following parameters are available in the `traefik2` class:
 * [`service_ensure`](#-traefik2--service_ensure)
 * [`static_config`](#-traefik2--static_config)
 * [`version`](#-traefik2--version)
+* [`user`](#-traefik2--user)
+* [`group`](#-traefik2--group)
+* [`manage_user`](#-traefik2--manage_user)
 * [`systemd_workdir`](#-traefik2--systemd_workdir)
 
 ##### <a name="-traefik2--bin_dir"></a>`bin_dir`
@@ -122,6 +126,30 @@ Data type: `String[1]`
 
 
 
+##### <a name="-traefik2--user"></a>`user`
+
+Data type: `String[1]`
+
+
+
+Default value: `'traefik'`
+
+##### <a name="-traefik2--group"></a>`group`
+
+Data type: `String[1]`
+
+
+
+Default value: `'traefik'`
+
+##### <a name="-traefik2--manage_user"></a>`manage_user`
+
+Data type: `Boolean`
+
+
+
+Default value: `true`
+
 ##### <a name="-traefik2--systemd_workdir"></a>`systemd_workdir`
 
 Data type: `Optional[Stdlib::Absolutepath]`
@@ -165,4 +193,8 @@ A description of what this class does
 ```puppet
 include traefik2::service
 ```
+
+### <a name="traefik2--user"></a>`traefik2::user`
+
+Dedicated system account Traefik runs as (de-root).
 
