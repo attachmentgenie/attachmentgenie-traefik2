@@ -2,8 +2,26 @@ name: "Publish module"
 
 on:
   workflow_dispatch:
- 
+  push:
+    tags:
+      - 'v*'
+
 jobs:
-  release: 
-    uses: "puppetlabs/cat-github-actions/.github/workflows/module_release.yml@main"
-    secrets: "inherit"
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Install Jig
+        run: |
+          curl -sSLo jig.tar.gz https://github.com/voxpupuli/jig/releases/latest/download/jig-linux-amd64.tar.gz
+          tar -xzf jig.tar.gz
+          sudo mv jig /usr/local/bin/
+
+      - name: Build Module
+        run: jig build
+
+      - name: Publish to Forge
+        if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
+        run: jig publish --token ${{ secrets.FORGE_API_KEY }}

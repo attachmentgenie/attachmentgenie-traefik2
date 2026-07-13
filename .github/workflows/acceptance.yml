@@ -1,0 +1,62 @@
+name: "OpenVox Multi-OS Acceptance Testing"
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  acceptance:
+    name: "Litmus: ${{ matrix.os.name }} (OpenVox ${{ matrix.openvox_version }})"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        openvox_version: ['8'] # Focus test on OpenVox 8 collection
+        os:
+          - name: "Ubuntu 22.04"
+            image: "litmusimage/ubuntu:22.04"
+          - name: "Debian 12"
+            image: "litmusimage/debian:12"
+          - name: "Rocky Linux 9"
+            image: "litmusimage/rockylinux:9"
+
+    steps:
+      - name: Checkout module source
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby environment
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      # 1. Provision the target container using local Docker
+      - name: Provision Test Environment
+        run: |
+          bundle exec rake "litmus:provision[docker, ${{ matrix.os.image }}]"
+
+      # 2. Install the OpenVox Agent collection onto the container
+      # Pre-built packages are fetched transparently from the open source apt/yum repositories
+      - name: Install OpenVox Agent
+        run: |
+          bundle exec rake "litmus:install_agent[openvox${{ matrix.openvox_version }}]"
+
+      # 3. Build and install your local FOSS module onto the target agent
+      - name: Install Puppet Module
+        run: |
+          bundle exec rake litmus:install_module
+
+      # 4. Execute your ServerSpec / RSpec-Puppet acceptance tests
+      - name: Run Acceptance Tests
+        run: |
+          bundle exec rake litmus:acceptance:parallel
+
+      # 5. Clean up local docker assets safely post-run
+      - name: Tear Down Test Environment
+        if: always()
+        run: |
+          bundle exec rake litmus:tear_down
